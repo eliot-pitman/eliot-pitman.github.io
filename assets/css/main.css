@@ -2901,7 +2901,7 @@ button:disabled,
 
 #header:after {
   content: "";
-  /* display: inline; */
+  display: inline;
   height: 1000vh;
   vertical-align: middle;
 }
