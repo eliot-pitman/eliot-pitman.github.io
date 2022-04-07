@@ -2899,6 +2899,13 @@ button:disabled,
   text-align: center;
 }
 
+#front-image {
+  width: 400px;
+  height: 300px;
+  position: relative;
+  vertical-align: middle;
+}
+
 #header:after {
   content: "";
   display: inline;
