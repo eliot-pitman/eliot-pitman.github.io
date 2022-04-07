@@ -2903,7 +2903,6 @@ button:disabled,
   width: 400px;
   height: 300px;
   position: relative;
-  vertical-align: middle;
 }
 
 #header:after {
