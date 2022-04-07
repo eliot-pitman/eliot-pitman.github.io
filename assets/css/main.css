@@ -2900,9 +2900,10 @@ button:disabled,
 }
 
 #front-image {
-  width: 400px;
-  height: 300px;
+  width: 40px;
+  height: 30px;
   position: relative;
+  vertical-align: middle;
 }
 
 #header:after {
