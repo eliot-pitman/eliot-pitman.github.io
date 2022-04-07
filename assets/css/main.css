@@ -2900,8 +2900,6 @@ button:disabled,
 }
 
 #front-image {
-  width: 425px;
-  height: 300px;
   position: relative;
   vertical-align: middle;
 }
