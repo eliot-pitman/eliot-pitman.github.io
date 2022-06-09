@@ -2022,7 +2022,7 @@ article.special {
 }
 
 header p {
-  color: #a8b0b3;
+  color: #ffffff;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -2085,7 +2085,7 @@ form {
 }
 
 label {
-  color: #61686b;
+  color: #ffffff;
   display: block;
   font-size: 0.9em;
   font-weight: 700;
@@ -2892,6 +2892,16 @@ button:disabled,
 }
 
 /* Header */
+
+#header-custom {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#bold {
+  font-size: 35px;
+}
 
 #header {
   height: 100vh;
