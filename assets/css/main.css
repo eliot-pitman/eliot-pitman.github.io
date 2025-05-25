@@ -3271,4 +3271,38 @@ button:disabled,
     margin: 0;
     padding: 0;
   }
+
+/* Mobile optimization additions */
+
+.responsive-img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 600px) {
+  #header-custom h1 {
+    font-size: 1.8em;
+    padding: 0 1rem;
+  }
+
+  .content p,
+  .content span {
+    font-size: 1em;
+  }
+
+  ul.icons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  ul.icons-grid h3 {
+    font-size: 1em;
+    word-break: break-word;
+  }
+
 }
