@@ -3299,6 +3299,7 @@ button:disabled,
     margin: 0;
     padding: 0;
   }
+}
 
 /* Mobile optimization additions */
 
@@ -3332,5 +3333,4 @@ button:disabled,
     font-size: 1em;
     word-break: break-word;
   }
-
 }
