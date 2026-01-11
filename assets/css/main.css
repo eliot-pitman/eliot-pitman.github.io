@@ -406,6 +406,8 @@ pre code {
   }
 }
 
+/* Custom alignment and spacing tweaks removed */
+
 /* Row */
 
 .row {
@@ -2162,6 +2164,18 @@ textarea {
   padding: 0.75em 1em;
 }
 
+/* Form alignment */
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.row.gtr-uniform {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 input[type="checkbox"],
 input[type="radio"] {
   -moz-appearance: none;
@@ -2443,37 +2457,40 @@ ul.icons-grid {
   list-style: none;
   padding: 0;
   position: relative;
-}
-
-ul.icons-grid li {
-  display: block;
-  float: left;
-  padding: 3em 0;
-  width: 50%;
-}
-
-ul.icons-grid li h3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(200px, auto);
+  gap: 0;
   margin: 0;
 }
 
-ul.icons-grid li:nth-child(2n + 1) {
-  box-shadow: inset -1px 0 0 0 #dddddd, 1px 0 0 0 #dddddd;
+ul.icons-grid li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3em 2em;
+  text-align: center;
+  border-right: 1px solid #dddddd;
+  position: relative;
 }
 
-ul.icons-grid li:nth-child(2n + 3):before {
-  background: #dddddd;
-  content: "";
-  display: block;
-  height: 2px;
-  margin-top: -3em;
-  position: absolute;
+ul.icons-grid li:nth-child(3n) {
+  border-right: none;
+}
+
+ul.icons-grid li h3 {
+  margin: 1em 0 0 0;
+  text-align: center;
   width: 100%;
 }
 
-ul.icons-grid:after {
-  clear: both;
-  content: "";
-  display: block;
+ul.icons-grid li i,
+ul.icons-grid li span.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5em;
 }
 
 /* Actions */
@@ -2843,7 +2860,7 @@ button:disabled,
 }
 
 .main .container {
-  padding: 5em 2.5em 8em 2.5em;
+  padding: 6em 2.5em 6em 2.5em;
   background: rgba();
   box-shadow: inset 0 1px 0 0 #dddddd;
 }
@@ -2861,6 +2878,7 @@ button:disabled,
   margin-right: 1px;
   vertical-align: middle;
   width: calc(100% - 10px);
+  text-align: center;
 }
 
 .main .goto-next {
@@ -2897,10 +2915,20 @@ button:disabled,
   font-size: 20px;
   font-weight: bold;
   color: #ffffff;
+  text-align: center;
+}
+
+#header-custom .major {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #bold {
   font-size: 35px;
+  text-align: center;
 }
 
 #header {
@@ -3206,21 +3234,21 @@ button:disabled,
   }
 
   ul.icons-grid li {
-    box-shadow: inset 0 1px 0 0 #dddddd !important;
-    float: none;
-    margin: 2em 0 0 0;
-    padding: 2em 0 0 0;
-    width: 100%;
+    grid-column: 1 / -1;
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+    margin: 0;
+    padding: 2em 0;
   }
 
   ul.icons-grid li:first-child {
-    box-shadow: none !important;
+    border-bottom: 1px solid #dddddd;
     margin-top: 0;
-    padding: 1em 0 0 0;
+    padding: 2em 0;
   }
 
   ul.icons-grid li:nth-child(2n + 1) {
-    box-shadow: none;
+    border-bottom: 1px solid #dddddd;
   }
 
   ul.icons-grid li:nth-child(2n + 3):before {
