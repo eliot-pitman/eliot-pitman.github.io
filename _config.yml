@@ -1,0 +1,4 @@
+# GitHub Pages configuration
+# Disable Jekyll processing for static site
+keep_files: [html5up-highlights, assets, images, CNAME]
+exclude: []
