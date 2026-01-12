@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatMessages = document.getElementById("chat-messages");
   const loadingBar = document.getElementById("loading-bar");
   const chatWidget = document.getElementById("chatbot-widget");
+  const infoIcon = document.getElementById("info-icon");
 
   // Move chatbot widget outside of #wrapper on mobile to fix position:fixed
   // The wrapper element has transform which breaks fixed positioning
@@ -55,16 +56,27 @@ document.addEventListener("DOMContentLoaded", function () {
   chatToggle.addEventListener("click", function () {
     if (chatContainer.style.display === "none") {
       chatContainer.style.display = "flex";
+      chatToggle.style.display = "none"; // Hide toggle button when chat is open
       chatInput.focus();
     } else {
       chatContainer.style.display = "none";
+      chatToggle.style.display = "flex"; // Show toggle button when chat is closed
     }
   });
 
   // Close chat window
   closeChat.addEventListener("click", function () {
     chatContainer.style.display = "none";
+    chatToggle.style.display = "flex"; // Show toggle button when chat is closed
   });
+
+  // Close chat when info icon is clicked
+  if (infoIcon) {
+    infoIcon.addEventListener("click", function () {
+      chatContainer.style.display = "none";
+      chatToggle.style.display = "flex"; // Show toggle button when chat is closed
+    });
+  }
 
   // Send message function
   function sendMessage() {
