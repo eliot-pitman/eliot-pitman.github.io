@@ -7,6 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatInput = document.getElementById("chat-input");
   const chatMessages = document.getElementById("chat-messages");
   const loadingBar = document.getElementById("loading-bar");
+  const chatWidget = document.getElementById("chatbot-widget");
+
+  // Move chatbot widget outside of #wrapper on mobile to fix position:fixed
+  // The wrapper element has transform which breaks fixed positioning
+  // Use window.load because main.js creates wrapper on load, not DOMContentLoaded
+  window.addEventListener("load", function () {
+    const wrapper = document.getElementById("wrapper");
+    if (wrapper && chatWidget) {
+      document.body.appendChild(chatWidget);
+    }
+  });
 
   const API_URL = "https://zu8schqs01.execute-api.us-east-1.amazonaws.com/api/chat";
   const RECAPTCHA_SITE_KEY = "6Lez0UcsAAAAAMmcPDc0nyn-qg-11swBhb8X8VN7"; // reCAPTCHA v3 site key

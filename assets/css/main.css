@@ -137,8 +137,13 @@ table {
   border-spacing: 0;
 }
 
+html {
+  position: relative;
+}
+
 body {
   -webkit-text-size-adjust: none;
+  isolation: isolate;
 }
 
 mark {
@@ -3387,6 +3392,8 @@ button:disabled,
   right: 20px;
   font-family: "Raleway", sans-serif;
   z-index: 9999;
+  transform: none;
+  will-change: auto;
 }
 
 #chat-toggle {
@@ -3441,9 +3448,9 @@ button:disabled,
 }
 
 #chat-container {
-  position: absolute;
+  position: fixed;
   bottom: 80px;
-  right: 0;
+  right: 20px;
   width: 420px;
   height: 500px;
   background: white;
@@ -3453,6 +3460,7 @@ button:disabled,
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #e0e0e0;
+  z-index: 9998;
 }
 
 #chat-header {
@@ -3659,17 +3667,24 @@ button:disabled,
 /* Responsive chatbot for mobile */
 @media screen and (max-width: 480px) {
   #chatbot-widget {
-    bottom: 10px;
-    right: 10px;
-    position: fixed;
-    z-index: 10000;
+    position: fixed !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    left: auto !important;
+    top: auto !important;
+    z-index: 10000 !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
   }
 
   #chat-toggle {
     width: 50px;
     height: 50px;
     font-size: 20px;
-    position: relative;
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
     z-index: 10001;
   }
 
