@@ -153,6 +153,29 @@
       </footer>
     </section>
 
+    <!-- Chatbot Widget -->
+    <div id="chatbot-widget">
+      <div id="chat-container" style="display: none">
+        <div id="chat-header">
+          <span>Chat</span>
+          <button
+            id="close-chat"
+            style="background: none; border: none; color: white; cursor: pointer; font-size: 20px"
+          >
+            ×
+          </button>
+        </div>
+        <div id="chat-messages"></div>
+        <div id="chat-input-area">
+          <input type="text" id="chat-input" placeholder="Type your message..." />
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+      <button id="chat-toggle" title="Open Chat">
+        <i class="fas fa-comments"></i>
+      </button>
+    </div>
+
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -161,5 +184,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbot.js"></script>
   </body>
 </html>
