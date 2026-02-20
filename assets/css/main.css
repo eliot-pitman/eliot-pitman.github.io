@@ -181,7 +181,9 @@ html {
   background-color: #010000;
   background-attachment: fixed, fixed;
   background-image: url("images/overlay.png"), url("../../images/bg.jpg");
-  background-position: top left, center center;
+  background-position:
+    top left,
+    center center;
   background-repeat: repeat, none;
   background-size: auto, cover;
 }
@@ -224,10 +226,18 @@ textarea {
 }
 
 a {
-  -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+  -moz-transition:
+    color 0.2s ease-in-out,
+    border-bottom-color 0.2s ease-in-out;
+  -webkit-transition:
+    color 0.2s ease-in-out,
+    border-bottom-color 0.2s ease-in-out;
+  -ms-transition:
+    color 0.2s ease-in-out,
+    border-bottom-color 0.2s ease-in-out;
+  transition:
+    color 0.2s ease-in-out,
+    border-bottom-color 0.2s ease-in-out;
   border-bottom: dotted 1px;
   color: #8cd1a8;
   text-decoration: none;
@@ -1956,10 +1966,18 @@ html body:before {
 }
 
 html body:before {
-  -moz-animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-hide 0.25s ease-in-out forwards !important;
-  -webkit-animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-hide 0.25s ease-in-out forwards !important;
-  -ms-animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-hide 0.25s ease-in-out forwards !important;
-  animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-hide 0.25s ease-in-out forwards !important;
+  -moz-animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-hide 0.25s ease-in-out forwards !important;
+  -webkit-animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-hide 0.25s ease-in-out forwards !important;
+  -ms-animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-hide 0.25s ease-in-out forwards !important;
+  animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-hide 0.25s ease-in-out forwards !important;
   -moz-transform-origin: 50% 50%;
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
@@ -1999,10 +2017,18 @@ html body:after {
 }
 
 html.is-preload body:before {
-  -moz-animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-rotate 0.75s infinite linear !important;
-  -webkit-animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-rotate 0.75s infinite linear !important;
-  -ms-animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-rotate 0.75s infinite linear !important;
-  animation: spinner-show 1.5s 1 0.25s ease forwards, spinner-rotate 0.75s infinite linear !important;
+  -moz-animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-rotate 0.75s infinite linear !important;
+  -webkit-animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-rotate 0.75s infinite linear !important;
+  -ms-animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-rotate 0.75s infinite linear !important;
+  animation:
+    spinner-show 1.5s 1 0.25s ease forwards,
+    spinner-rotate 0.75s infinite linear !important;
   z-index: 10001;
 }
 
@@ -2692,10 +2718,18 @@ button,
   -webkit-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  -moz-transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  -webkit-transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  -ms-transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
   background-color: transparent;
   border-radius: 0;
   border: 0;
@@ -2833,7 +2867,9 @@ button:disabled,
   -ms-transition: opacity 0.5s ease-out;
   transition: opacity 0.5s ease-out;
   background-attachment: fixed, fixed;
-  background-position: top left, center center;
+  background-position:
+    top left,
+    center center;
   background-repeat: repeat, none;
   background-size: auto, cover;
   height: 100%;
@@ -3548,6 +3584,31 @@ button:disabled,
   border-radius: 6px;
 }
 
+.user-message-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+.message-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid #ddd;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .bot-message {
   align-self: flex-start;
   background: #f5f5f5;
@@ -3743,7 +3804,9 @@ button:disabled,
 .icons-grid li h3 {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease;
   margin-top: 16px;
   font-size: 14px;
 }

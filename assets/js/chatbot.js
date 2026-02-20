@@ -1,5 +1,6 @@
 // Chatbot Widget
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
+  function initChatbot() {
   const chatToggle = document.getElementById("chat-toggle");
   const chatContainer = document.getElementById("chat-container");
   const closeChat = document.getElementById("close-chat");
@@ -98,8 +99,18 @@ document.addEventListener("DOMContentLoaded", function () {
     grecaptcha
       .execute(RECAPTCHA_SITE_KEY, { action: "chatbot_message" })
       .then(function (token) {
-        // Add user message to chat
-        addMessageToChat(message, "user");
+        // Add user message to chat with spinner
+        const wrapper = document.createElement("div");
+        wrapper.className = "user-message-wrapper";
+        const spinner = document.createElement("div");
+        spinner.className = "message-spinner";
+        const messageEl = document.createElement("div");
+        messageEl.className = "chat-message user-message";
+        messageEl.textContent = message;
+        wrapper.appendChild(spinner);
+        wrapper.appendChild(messageEl);
+        chatMessages.appendChild(wrapper);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
         chatInput.value = "";
 
         // Send API request with reCAPTCHA token
@@ -140,6 +151,9 @@ document.addEventListener("DOMContentLoaded", function () {
             addMessageToChat("Sorry, there was an error processing your message.", "bot");
           })
           .finally(() => {
+            // Remove spinner from user message
+            const spinnerEl = wrapper.querySelector(".message-spinner");
+            if (spinnerEl) spinnerEl.remove();
             sendBtn.disabled = false;
             loadingBar.style.display = "none";
           });
@@ -161,4 +175,12 @@ document.addEventListener("DOMContentLoaded", function () {
       sendMessage();
     }
   });
-});
+  }
+
+  // Run immediately if DOM is already ready, otherwise wait for DOMContentLoaded
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initChatbot);
+  } else {
+    initChatbot();
+  }
+})();

@@ -11,8 +11,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <script src="https://kit.fontawesome.com/edaa1fad95.js" crossorigin="anonymous"></script>
-    <!-- reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lez0UcsAAAAAMmcPDc0nyn-qg-11swBhb8X8VN7"></script>
+
+    <!-- Feature Flags -->
+    <script>
+      var FEATURES = {
+        chatbot: true, // Set to false to disable the chatbot
+      };
+    </script>
+
+    <!-- reCAPTCHA v3 (loaded only when chatbot is enabled) -->
+    <script>
+      if (FEATURES.chatbot) {
+        var s = document.createElement("script");
+        s.src = "https://www.google.com/recaptcha/api.js?render=6Lez0UcsAAAAAMmcPDc0nyn-qg-11swBhb8X8VN7";
+        document.head.appendChild(s);
+      }
+    </script>
   </head>
 
   <body class="is-preload">
@@ -180,7 +194,7 @@
     </section>
 
     <!-- Chatbot Infrastructure -->
-    <!-- <section id="chatbot-infrastructure" class="main special">
+    <section id="chatbot-infrastructure" class="main special">
       <div class="container">
         <div class="content">
           <header class="major">
@@ -217,10 +231,10 @@
           </ul>
         </div>
       </div>
-    </section> -->
+    </section>
 
     <!-- Chatbot Widget -->
-    <!-- <div id="chatbot-widget">
+    <div id="chatbot-widget">
       <div id="chat-container" style="display: none">
         <div id="chat-header">
           <div>
@@ -255,7 +269,7 @@
       <button id="chat-toggle" title="Ask about my experience">
         <i class="fas fa-comments"></i>
       </button>
-    </div> -->
+    </div>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -265,6 +279,20 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <!-- <script src="assets/js/chatbot.js"></script> -->
+    <script>
+      if (FEATURES.chatbot) {
+        // Hide chatbot elements and load chatbot script
+        var s = document.createElement("script");
+        s.src = "assets/js/chatbot.js";
+        document.body.appendChild(s);
+      } else {
+        // Hide chatbot UI and infrastructure section when disabled
+        var ids = ["chatbot-widget", "chatbot-infrastructure"];
+        ids.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) el.style.display = "none";
+        });
+      }
+    </script>
   </body>
 </html>
